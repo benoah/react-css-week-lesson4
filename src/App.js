@@ -1,25 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {ThemeProvider} from "styled-components";
+import PageHeading from './Components/headings/PageHeading';
+import Container from './Components/layout/Container';
+import Input from './Components/form/Input';
+import Form from './Components/form/Form';
+import Button, {DangerButton}  from './Components/form/Button';
+import GlobalStyle from './styles/GlobalStyle';
+
+import theme from './styles/Theme';
+
+
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+          <Container>
+      <PageHeading>Register</PageHeading>
+      <Form>
+    <Input placeholder="Name" />
+    <Input placeholder="City"  colour="#5D94D5" />
+    <Button>Registrer</Button>
+    <DangerButton>Cancel</DangerButton>
+      </Form>
+
+    </Container>
+    </ThemeProvider>
+
   );
 }
 
